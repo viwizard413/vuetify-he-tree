@@ -3,6 +3,7 @@
     v-model="localTreeData"
     class="mtl-tree"
     tree-line
+    @click:node="clickNode"
   />
 </template>
 
@@ -16,11 +17,21 @@
       treeData: {
         type: Object,
         required: true
-      }
+      },
+      focus: {
+        type: Function,
+        required: true
+      },
     },
     data() {
       return {
         localTreeData: this.treeData,
+      }
+    },
+    methods: {
+      clickNode(node) {
+        console.log('clickNode')
+        this.focus(node)
       }
     },
   }

@@ -6,20 +6,20 @@
           Configuration File
           <span v-if="configurationTree.enable">
             <v-btn
-              @click="configurationTree.enable = !configurationTree.enable"
               prepend-icon="mdi-chevron-left"
+              @click="configurationTree.enable = !configurationTree.enable"
             >
               close tree
             </v-btn>
-          </span >
+          </span>
           <span v-else>
             <v-btn
-              @click="configurationTree.enable = !configurationTree.enable"
               prepend-icon="mdi-chevron-right"
+              @click="configurationTree.enable = !configurationTree.enable"
             >
               open tree
             </v-btn>
-          </span >
+          </span>
         </v-toolbar-title>
       </v-toolbar>
       <v-row class="ma-0">
@@ -28,12 +28,29 @@
           :cols="configurationTree.enable? 3 : 0"
         >
           <v-card>
-            <ConfigurationTree :treeData="treeData" class="ma-2"/>
+            <ConfigurationTree
+              :tree-data="treeData"
+              :focus="focus"
+              sclass="ma-2"
+            />
           </v-card>
         </v-col>
         <v-col :cols="configurationTree.enable? 9 : 12">
           <v-card>
-            main
+            <v-form>
+              <v-text-field
+                ref="Projects"
+                label="Projects"
+                variant="outlined"
+                class="ma-2"
+              />
+              <v-text-field
+                ref="Projects-Frontend"
+                label="Projects/Frontend"
+                variant="outlined"
+                class="ma-2"
+              />
+            </v-form>
           </v-card>
         </v-col>
       </v-row>
@@ -51,9 +68,11 @@
         treeData: [
           {
             text: 'Projects',
+            ref: 'Projects',
             children: [
               {
                 text: 'Frontend',
+                ref: 'Projects-Frontend',
                 children: [
                   {
                     text: 'Vue',
@@ -84,6 +103,12 @@
           { text: 'Photos' },
           { text: 'Videos' },
         ],
+      }
+    },
+    methods: {
+      focus(node) {
+        console.log(node)
+        this.$refs[node.data.ref].focus()
       }
     },
   }
