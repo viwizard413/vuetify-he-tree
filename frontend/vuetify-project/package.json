@@ -10,6 +10,7 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@he-tree/vue": "^2.9.4",
     "@mdi/font": "7.4.47",
     "roboto-fontface": "*",
     "vue": "^3.4.31",
