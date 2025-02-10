@@ -1,17 +1,13 @@
 <template>
-  <BaseTree
-    v-model="treeData"
-    class="mtl-tree"
-    tree-line
-  />
+  <v-container>
+    <v-responseve>
+      <ConfigurationTree :treeData="treeData" />
+    </v-responseve>
+  </v-container>
 </template>
 
 <script>
-  import { BaseTree } from '@he-tree/vue'
-  import '@he-tree/vue/style/default.css'
-
   export default {
-    components: { BaseTree },
     data() {
       return {
         treeData: [
