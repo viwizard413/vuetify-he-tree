@@ -4,15 +4,25 @@
     class="mtl-tree"
     tree-line
     @click:node="clickNode"
-  />
+  >
+    <template #default="{ node, stat }">
+      <OpenIcon
+        v-if="stat.children.length"
+        :open="stat.open"
+        class="mtl-mr"
+        @click="stat.open = !stat.open"
+      />
+      <span class="mtl-ml">{{ node.text }}</span>
+    </template>
+  </BaseTree>
 </template>
 
 <script>
-  import { BaseTree } from '@he-tree/vue'
+  import { BaseTree, OpenIcon } from '@he-tree/vue'
   import '@he-tree/vue/style/default.css'
 
   export default {
-    components: { BaseTree },
+    components: { BaseTree, OpenIcon },
     props: {
       treeData: {
         type: Object,
