@@ -1,9 +1,13 @@
 <template>
-  <BaseTree class="mtl-tree" v-model="treeData" treeLine />
+  <BaseTree
+    v-model="treeData"
+    class="mtl-tree"
+    tree-line
+  />
 </template>
 
 <script>
-  import { BaseTree, Draggable, pro } from '@he-tree/vue'
+  import { BaseTree } from '@he-tree/vue'
   import '@he-tree/vue/style/default.css'
 
   export default {
