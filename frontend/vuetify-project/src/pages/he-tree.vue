@@ -7,11 +7,13 @@
         class="mtl-mr"
         @click.native="stat.open = !stat.open"
       />
+      <!--
       <input
         class="mtl-checkbox mtl-mr"
         type="checkbox"
         v-model="stat.checked"
       />
+      -->
       <span class="mtl-ml">{{ node.text }}</span>
     </template>
   </Draggable>
